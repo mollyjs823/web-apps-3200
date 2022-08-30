@@ -1,55 +1,57 @@
-const options  = [
-    {
-        name : "Pieology",
-        background : "#FF595E",
-        color: "#fff"
-    },
-    {
-        name : "Mo Bettahs",
-        background : "#FF924C",
-        color: "#fff"
-    },
-    {
-        name : "Cafe Sabor",
-        background : "#ffca3a",
-        color: "#fff"
-    },
-    {
-        name : "Jersey Mike's",
-        background : "#c5ca30",
-        color: "#fff"
-    },
-    {
-        name : "Viva Chicken",
-        background : "#8AC926",
-        color: "#fff"
-    },
-    {
-        name : "Tumeric",
-        background : "#36949D",
-        color: "#fff"
-    },
-    {
-        name : "At Home!",
-        background : "#1982C4",
-        color: "#fff"
-    },
-    {
-        name : "Riggatti's",
-        background : "#4267AC",
-        color: "#fff"
-    },
-    {
-        name : "Morty's Cafe",
-        background : "#565AA0",
-        color: "#fff"
-    },
-    {
-        name : "Xetava Gardens Cafe",
-        background : "#6A4C93",
-        color: "#fff"
-    }
-];
+// const options  = [
+//     {
+//         "name" : "Pieology",
+//         "background" : "#FF595E",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Mo Bettahs",
+//         "background" : "#FF924C",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Cafe Sabor",
+//         "background" : "#ffca3a",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Jersey Mike's",
+//         "background" : "#c5ca30",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Viva Chicken",
+//         "background" : "#8AC926",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Tumeric",
+//         "background" : "#36949D",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "At Home!",
+//         "background" : "#1982C4",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Riggatti's",
+//         "background" : "#4267AC",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Morty's Cafe",
+//         "background" : "#565AA0",
+//         "color": "#fff"
+//     },
+//     {
+//         "name" : "Xetava Gardens Cafe",
+//         "background" : "#6A4C93",
+//         "color": "#fff"
+//     }
+// ];
+
+var options = [];
 
 function setSpinner() {
     const par = document.getElementById("spinner");
@@ -90,4 +92,11 @@ function pickPlace() {
     }
 }
 
-setSpinner();
+fetch('https://api.jsonbin.io/v3/b/630e6bbce13e6063dc92c90f').then((response) => {
+    response.json().then((data) => {
+        // the JSON data is unpacked and ready
+        options = data.record;
+        setSpinner();
+    });
+});
+
