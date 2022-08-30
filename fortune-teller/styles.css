@@ -1,0 +1,129 @@
+:root {
+    --spun: 360deg;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', sans-serif;
+}
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(44, 44, 44);
+    color: #f8f8f8;
+    padding: 5em;
+    overflow-x: hidden;
+}
+h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: lighter;
+    margin-bottom: 12px;
+}
+h2 {
+    padding: 12px;
+    border-bottom: 2px solid #f8f8f8;
+    border-top: 2px solid #f8f8f8;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+}
+.box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 10px solid #f8f8f8;
+    overflow: hidden;
+}
+#spinner {
+    width: 100%;
+    height: 100%;
+    transition: all 2s cubic-bezier(.71,0,.33,1.56) 0ms;
+}
+.slice {
+    width: 50%;
+    height: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform-origin: right center;
+    top: 120px;
+    clip-path: polygon(0 16%, 100% 50%, 0 84%);
+    font-size: 18px;
+    padding-right: 48px;
+}
+#arrow {
+    background-image: url('arrow.svg');
+    width: 50px;
+    height: 50px;
+    transform: rotate(180deg);
+    margin-right: 12px;
+}
+.center {
+    width: 180px;
+    height: 60px;
+}
+.btn {
+    position: relative;
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    outline: none;
+    transition: .3s ease-in-out;
+}
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 0.5s ease-in-out;
+}
+.btn:hover {
+    transition: 0.5s ease-in-out;
+    background: #4F95DA;
+}
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+.btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+#selected {
+    margin-top: 64px;
+    width: 500px;
+    font-size: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+#selection_ctr {
+    width: 100%;
+    height: 100px;
+}
+.selection {
+    width: 300px;
+    height: 50px;
+    padding: 12px 24px;
+    margin: 12px auto;
+    text-align: center;
+    transform: translate(150vw);
+    transition: all 0.5s ease-in-out;
+}
